@@ -23,8 +23,7 @@ export default function AboutPage() {
     <div className="container py-16 max-w-5xl mx-auto">
       {/* 헤더 섹션 */}
       <div className="text-center mb-16 relative">
-        <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-full h-40 bg-gradient-to-r from-pink-500/20 via-purple-500/20 to-blue-500/20 rounded-full blur-3xl -z-10"></div>
-        <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 text-transparent bg-clip-text animate-pulse">
+        <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-full h-40 bg-gradient-to-r from-pink-500/20 via-purple-500/20 to-blue-500/20 rounded-full blur-3xl -z-10"></div>        <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 text-transparent bg-clip-text">
           ABOUT MY BLOG
         </h1>
         <div className="flex justify-center mb-4">
@@ -324,10 +323,16 @@ export default function AboutPage() {
           </div>
         </CardContent>
       </Card>      {/* 연락 및 소통 섹션 */}
-      <Card className="mb-12 border-2 border-primary/20 shadow-lg overflow-hidden relative bg-card">
-        {/* 배경 효과 제거하고 단색 배경으로 변경 */}
-        <CardHeader className="border-b bg-card">          <CardTitle className="text-2xl flex items-center gap-3">
-            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-pink-100 dark:bg-pink-950 border-2 border-pink-200 dark:border-pink-800 shadow-md">
+      <Card className="mb-12 border-2 border-primary/20 shadow-lg overflow-hidden relative group">
+        {/* 배경 효과 */}
+        <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 via-purple-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+        <div className="absolute -top-20 right-20 w-60 h-60 bg-blue-500/5 rounded-full blur-3xl opacity-0 group-hover:opacity-70 transition-opacity duration-700"></div>
+        <div className="absolute -bottom-20 left-20 w-60 h-60 bg-pink-500/5 rounded-full blur-3xl opacity-0 group-hover:opacity-70 transition-opacity duration-700"></div>
+        
+        <CardHeader className="border-b bg-gradient-to-r from-background via-accent/20 to-background relative">
+          <div className="absolute top-0 right-0 h-full w-1/3 bg-gradient-to-l from-pink-500/10 to-transparent"></div>
+          <CardTitle className="text-2xl flex items-center gap-3 relative z-10">
+            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-pink-200 to-purple-200 border-2 border-pink-300 shadow-md transform group-hover:rotate-6 transition-transform duration-500">
               <span className="text-2xl">💌</span>
             </div>            <div>
               <span className="bg-gradient-to-r from-pink-500 to-purple-500 text-transparent bg-clip-text font-bold">
@@ -337,33 +342,120 @@ export default function AboutPage() {
             </div>
           </CardTitle>
         </CardHeader>
-        <CardContent className="py-6 bg-card">
-          <div className="mb-6 p-5 rounded-lg bg-accent/50 shadow-md border border-primary/10">
-            <p className="text-lg leading-relaxed font-medium text-foreground">
-              블로그 글에 대한 의견이나 문의사항은 댓글 또는 이메일로 연락 주시면 감사하겠습니다. 함께 소통하며 문화적 경험을 나누고 싶습니다.
-            </p>
+        
+        <CardContent className="py-8 relative z-10">
+          {/* 소개 메시지 */}
+          <div className="mb-8 p-6 rounded-xl bg-gradient-to-br from-background to-accent/10 shadow-md border border-primary/10 transform transition-all duration-300 hover:shadow-lg hover:scale-[1.01] group/item relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-500 to-purple-500"></div>
+            <div className="absolute -right-20 -bottom-20 w-40 h-40 bg-pink-500/5 rounded-full blur-2xl group-hover/item:opacity-100 opacity-0 transition-opacity duration-500"></div>
+            
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-pink-500/30 to-purple-500/30 flex items-center justify-center transform group-hover/item:scale-110 transition-transform duration-300">
+                <span className="text-lg">✨</span>
+              </div>              <div>
+                <p className="text-lg leading-relaxed mb-3">
+                  블로그 글에 대한 의견이나 문의사항은 댓글 또는 아래 연락처로 연락 주시면 감사하겠습니다.
+                </p>
+                <p className="text-lg font-medium italic text-center py-2 px-4 bg-gradient-to-r from-pink-50 to-purple-50 dark:from-pink-950/30 dark:to-purple-950/30 rounded-lg border border-primary/10 shadow-inner transform group-hover/item:scale-105 transition-all duration-300">
+                  <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 text-transparent bg-clip-text font-serif">
+                    "함께 소통하며 문화적 경험을 나누고 싶습니다 ✨"
+                  </span>
+                </p>
+              </div>
+            </div>
           </div>
-          
-          <div className="bg-card p-6 rounded-lg flex flex-col sm:flex-row items-center gap-6 justify-center border-2 border-pink-200 dark:border-pink-800 shadow-md">
-            {/* 배경 그라데이션 완전 제거 */}
-            <div className="flex items-center justify-center w-16 h-16 rounded-full bg-pink-100 dark:bg-pink-950 border-2 border-pink-200 dark:border-pink-800 shadow">
-              <span className="text-4xl">📧</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* 이메일 연락처 */}
+            <div className="bg-gradient-to-br from-background to-accent/10 shadow-md rounded-xl p-5 border border-primary/10 transform transition-all duration-300 hover:shadow-lg hover:scale-[1.02] group/email relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-500"></div>
+              <div className="absolute -left-20 -bottom-20 w-40 h-40 bg-blue-500/5 rounded-full blur-2xl group-hover/email:opacity-100 opacity-0 transition-opacity duration-500"></div>
+              
+              <div className="flex items-center gap-4">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-200 to-purple-200 flex items-center justify-center border-2 border-blue-300/50 shadow-md transform group-hover/email:rotate-6 transition-transform duration-300">
+                  <span className="text-xl">✉️</span>
+                </div>
+                <div>
+                  <h3 className="text-base font-bold mb-0.5 bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">이메일로 연락하기</h3>
+                  <div className="flex items-center gap-2 mb-2">
+                    <p className="text-sm font-medium">sohappy23@hs.ac.kr</p>
+                    <Button variant="ghost" size="sm" className="h-6 px-2 rounded-full text-xs bg-blue-100 dark:bg-blue-900/40 hover:bg-blue-200 dark:hover:bg-blue-900/60 text-blue-700 dark:text-blue-300" asChild>
+                      <Link href="mailto:sohappy23@hs.ac.kr">
+                        <span className="flex items-center gap-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-mail">
+                            <rect width="20" height="16" x="2" y="4" rx="2" />
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                          </svg>
+                          메일 보내기
+                        </span>
+                      </Link>
+                    </Button>
+                  </div>
+                  <p className="text-xs text-muted-foreground italic">
+                    평일 기준 24시간 이내 답변 드립니다 💫
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className="text-center sm:text-left">
-              <p className="text-sm font-medium text-foreground mb-1">이메일로 연락하기</p>
-              <p className="text-xl font-bold text-foreground">sohappy23@hs.ac.kr</p>
+            
+            {/* 소셜 미디어 연락처 */}
+            <div className="bg-gradient-to-br from-background to-accent/10 shadow-md rounded-xl p-5 border border-primary/10 transform transition-all duration-300 hover:shadow-lg hover:scale-[1.02] group/social relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-500 to-orange-400"></div>
+              <div className="absolute -right-20 -top-20 w-40 h-40 bg-pink-500/5 rounded-full blur-2xl group-hover/social:opacity-100 opacity-0 transition-opacity duration-500"></div>
+              
+              <div className="flex items-center gap-4">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-pink-200 to-orange-200 flex items-center justify-center border-2 border-pink-300/50 shadow-md transform group-hover/social:rotate-6 transition-transform duration-300">
+                  <span className="text-xl">🤝</span>
+                </div>
+                <div>
+                  <h3 className="text-base font-bold mb-0.5 bg-gradient-to-r from-pink-600 to-orange-500 text-transparent bg-clip-text">소셜 미디어</h3>
+                  <p className="text-xs text-muted-foreground mb-2">
+                    다양한 방법으로 연결되어 함께 성장해요! 팔로우해 주세요 ✨
+                  </p>
+                  
+                  <div className="flex gap-1.5">
+                    <Button variant="outline" size="icon" asChild className="w-7 h-7 rounded-full bg-gradient-to-br from-background/90 to-background/70 hover:bg-pink-100 dark:hover:bg-pink-900/30 transition-all duration-300 border border-primary/20">
+                      <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-instagram">
+                          <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                          <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                        </svg>
+                      </Link>
+                    </Button>
+                    <Button variant="outline" size="icon" asChild className="w-7 h-7 rounded-full bg-gradient-to-br from-background/90 to-background/70 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-all duration-300 border border-primary/20">
+                      <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer" title="Twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-twitter">
+                          <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
+                        </svg>
+                      </Link>
+                    </Button>
+                    <Button variant="outline" size="icon" asChild className="w-7 h-7 rounded-full bg-gradient-to-br from-background/90 to-background/70 hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-all duration-300 border border-primary/20">
+                      <Link href="https://github.com" target="_blank" rel="noopener noreferrer" title="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-github">
+                          <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                          <path d="M9 18c-4.51 2-5-2-7-2"/>
+                        </svg>
+                      </Link>
+                    </Button>
+                    <Button variant="outline" size="icon" asChild className="w-7 h-7 rounded-full bg-gradient-to-br from-background/90 to-background/70 hover:bg-green-100 dark:hover:bg-green-900/30 transition-all duration-300 border border-primary/20">
+                      <Link href="https://line.me" target="_blank" rel="noopener noreferrer" title="Line">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-message-circle">
+                          <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+                        </svg>
+                      </Link>
+                    </Button>
+                    <Button variant="outline" size="icon" asChild className="w-7 h-7 rounded-full bg-gradient-to-br from-background/90 to-background/70 hover:bg-red-100 dark:hover:bg-red-900/30 transition-all duration-300 border border-primary/20">
+                      <Link href="https://youtube.com" target="_blank" rel="noopener noreferrer" title="YouTube">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-youtube">
+                          <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/>
+                          <path d="m10 15 5-3-5-3z"/>
+                        </svg>
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </div>
             </div>
-            <Button variant="default" size="lg" className="shadow-md bg-pink-500 hover:bg-pink-600 border-0 text-white font-medium" asChild>
-              <Link href="mailto:sohappy23@hs.ac.kr" className="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-mail-plus">
-                  <path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8"/>
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                  <path d="M19 16v6"/>
-                  <path d="M16 19h6"/>
-                </svg>
-                이메일 보내기
-              </Link>
-            </Button>
           </div>
         </CardContent>
       </Card>
