@@ -22,14 +22,14 @@ const notoSansKR = Noto_Sans_KR({
 // SEO 메타데이터 설정
 export const metadata: Metadata = {
   title: {
-    default: "My Blog - 웹 개발 기술 블로그",
-    template: "%s | My Blog",
+    default: "이소현의 일상생활 일기",
+    template: "%s | 이소현의 일상생활 일기",
   },
-  description: "웹 개발, JavaScript, React, Next.js에 관한 기술 블로그입니다. 최신 개발 트렌드와 실무 경험을 공유합니다.",
-  keywords: ["웹 개발", "JavaScript", "React", "Next.js", "TypeScript", "프론트엔드", "기술 블로그"],
-  authors: [{ name: "My Blog Team" }],
-  creator: "My Blog",
-  publisher: "My Blog",
+  description: "영화, 드라마, 뮤지컬, 연극 등 문화생활과 일상을 공유하는 블로그입니다.",
+  keywords: ["영화", "드라마", "뮤지컬", "연극", "영상문화", "디지털영상문화콘텐츠", "한신대학교"],
+  authors: [{ name: "이소현" }],
+  creator: "이소현",
+  publisher: "이소현의 일상생활 일기",
   formatDetection: {
     email: false,
     address: false,
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ko_KR",
     url: "/",
-    title: "My Blog - 웹 개발 기술 블로그",
-    description: "웹 개발, JavaScript, React, Next.js에 관한 기술 블로그입니다.",
-    siteName: "My Blog",
+    title: "이소현의 일상생활 일기",
+    description: "영화, 드라마, 뮤지컬, 연극 등 문화생활과 일상을 공유하는 블로그입니다.",
+    siteName: "이소현의 일상생활 일기",
     images: [
       {
         url: "/images/og-image.jpg",

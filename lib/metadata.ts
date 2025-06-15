@@ -2,11 +2,11 @@ import type { Metadata } from 'next';
 
 // 기본 사이트 정보
 const SITE_CONFIG = {
-  name: 'My Blog',
-  description: '개발, 기술, 그리고 일상을 공유하는 블로그',
+  name: '이소현의 일상생활 일기',
+  description: '영화, 드라마, 뮤지컬, 연극 등 문화생활과 일상을 공유하는 블로그',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3001',
   author: {
-    name: '블로그 작성자',
+    name: '이소현',
     email: 'admin@myblog.com',
   },
   social: {
