@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카테고리 재설정</title>
+    <style>
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #2563eb;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        button {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #2563eb;
+        }
+        .card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .category {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            color: white;
+            font-weight: 500;
+        }
+        .result {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 4px;
+            background-color: #f3f4f6;
+            display: none;
+        }
+        .success {
+            background-color: #dcfce7;
+            border-left: 4px solid #22c55e;
+        }
+        .error {
+            background-color: #fee2e2;
+            border-left: 4px solid #ef4444;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>카테고리 재설정</h1>
+        <p>이 페이지는 블로그 카테고리를 기본값으로 재설정합니다. 아래 버튼을 클릭하면 모든 카테고리가 삭제되고 다음 카테고리로 새로 생성됩니다:</p>
+        
+        <div class="categories">
+            <div class="category" style="background-color: #3B82F6;">관람</div>
+            <div class="category" style="background-color: #8B5CF6;">제작</div>
+            <div class="category" style="background-color: #10B981;">일상</div>
+            <div class="category" style="background-color: #6B7280;">기타</div>
+        </div>
+        
+        <p style="margin-top: 1.5rem;">
+            <button id="resetButton">카테고리 재설정하기</button>
+        </p>
+        
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('resetButton').addEventListener('click', async function() {
+            try {
+                // 버튼 비활성화
+                this.disabled = true;
+                this.textContent = '처리 중...';
+                
+                // API 호출
+                const response = await fetch('/api/simple-reset-categories', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                const data = await response.json();
+                const resultElement = document.getElementById('result');
+                
+                // 결과 표시
+                if (data.success) {
+                    resultElement.className = 'result success';
+                    resultElement.innerHTML = `<p><strong>성공!</strong> ${data.message}</p>`;
+                    if (data.data && data.data.length) {
+                        resultElement.innerHTML += `<p>${data.data.length}개의 카테고리가 생성되었습니다.</p>`;
+                    }
+                } else {
+                    resultElement.className = 'result error';
+                    resultElement.innerHTML = `<p><strong>오류:</strong> ${data.error || '알 수 없는 오류가 발생했습니다.'}</p>`;
+                }
+                
+                resultElement.style.display = 'block';
+            } catch (error) {
+                const resultElement = document.getElementById('result');
+                resultElement.className = 'result error';
+                resultElement.innerHTML = `<p><strong>오류:</strong> ${error.message || '요청 중 오류가 발생했습니다.'}</p>`;
+                resultElement.style.display = 'block';
+            } finally {
+                // 버튼 상태 복원
+                const button = document.getElementById('resetButton');
+                button.disabled = false;
+                button.textContent = '카테고리 재설정하기';
+            }
+        });
+    </script>
+</body>
+</html>
