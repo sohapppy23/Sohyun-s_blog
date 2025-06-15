@@ -25,8 +25,7 @@ export default function Footer() {
   // 현재 연도 자동 계산
   const currentYear = new Date().getFullYear();
 
-  return (
-    <footer className="w-full border-t bg-background">
+  return (    <footer className="w-full border-t bg-gradient-to-r from-purple-50 via-indigo-50 to-sky-50">
       <div className="container mx-auto max-w-7xl px-4 py-8">
         
         {/* 메인 푸터 콘텐츠 - 반응형 2열/1열 레이아웃 */}
@@ -36,12 +35,12 @@ export default function Footer() {
           <div className="flex flex-col items-center space-y-3 md:items-start">
             {/* 브랜드 로고 및 이름 */}
             <div className="flex items-center space-x-2">
-              <div className="h-7 w-7 rounded-md bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm" aria-hidden="true">
+              <div className="h-7 w-7 rounded-md bg-purple-400 flex items-center justify-center">
+                <span className="text-white font-bold text-sm" aria-hidden="true">
                   B
                 </span>
               </div>
-              <span className="font-bold text-lg">My Blog</span>
+              <span className="font-bold text-lg text-purple-600">My Blog</span>
             </div>
             
             {/* 저작권 정보 */}

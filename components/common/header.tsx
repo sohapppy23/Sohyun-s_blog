@@ -65,18 +65,17 @@ export default function Header() {
         <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
           
           {/* 로고/브랜드명 */}
-          <div className="flex items-center space-x-2">
-            <Link 
+          <div className="flex items-center space-x-2">            <Link 
               href="/" 
               className="flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm"
               aria-label="홈페이지로 이동"
             >
-              <div className="h-8 w-8 rounded-md bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg" aria-hidden="true">
+              <div className="h-8 w-8 rounded-md bg-purple-400 flex items-center justify-center">
+                <span className="text-white font-bold text-lg" aria-hidden="true">
                   B
                 </span>
               </div>
-              <span className="font-bold text-xl">My Blog</span>
+              <span className="font-bold text-xl text-purple-600">My Blog</span>
             </Link>
           </div>
 

@@ -133,13 +133,12 @@ export default function RootLayout({
                   "@type": "ImageObject",
                   "url": `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/images/logo.png`
                 }
-              },
-              "inLanguage": "ko-KR"
+              },              "inLanguage": "ko-KR"
             }),
           }}
         />
       </head>
-      <body className="min-h-screen bg-background font-sans antialiased">
+      <body suppressHydrationWarning className="min-h-screen bg-background font-sans antialiased">
         <Providers>
           {/* 전체 레이아웃 구조 */}
           <div className="relative flex min-h-screen flex-col">
