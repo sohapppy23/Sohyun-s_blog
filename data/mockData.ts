@@ -92,38 +92,31 @@ export const mockAuthors: Author[] = [
 export const mockCategories: Category[] = [
   {
     id: 'cat-1',
-    name: '웹 개발',
-    slug: 'web-development',
-    description: '웹 개발 전반에 관한 내용',
-    color: '#3B82F6'
+    name: '관람',
+    slug: 'watching',
+    description: '공연, 영화, 전시회 등 문화 예술 관람에 관한 이야기',
+    color: '#A5C8FF'  // 파스텔 블루
   },
   {
     id: 'cat-2',
-    name: 'JavaScript',
-    slug: 'javascript',
-    description: 'JavaScript 언어와 관련 기술',
-    color: '#F59E0B'
+    name: '제작',
+    slug: 'creating',
+    description: '직접 만들고 제작하는 콘텐츠와 작품에 대한 이야기',
+    color: '#D8B4FE'  // 파스텔 퍼플
   },
   {
     id: 'cat-3',
-    name: 'React',
-    slug: 'react',
-    description: 'React 라이브러리와 생태계',
-    color: '#06B6D4'
+    name: '일상',
+    slug: 'daily',
+    description: '소소한 일상과 경험을 공유하는 이야기',
+    color: '#A7F3D0'  // 파스텔 그린
   },
   {
     id: 'cat-4',
-    name: 'Next.js',
-    slug: 'nextjs',
-    description: 'Next.js 프레임워크',
-    color: '#000000'
-  },
-  {
-    id: 'cat-5',
-    name: 'TypeScript',
-    slug: 'typescript',
-    description: 'TypeScript 언어와 타입 시스템',
-    color: '#3178C6'
+    name: '기타',
+    slug: 'etc',
+    description: '다양한 주제의 기타 이야기',
+    color: '#D1D5DB'  // 파스텔 그레이
   }
 ];
 
@@ -153,9 +146,8 @@ export const mockPosts: BlogPost[] = [
     title: 'TypeScript 마스터하기: 고급 타입과 유틸리티 타입 활용법',
     slug: 'typescript-advanced-types-utility-types',
     content: '# TypeScript 마스터하기: 고급 타입과 유틸리티 타입 활용법\n\nTypeScript를 사용하다 보면 기본 타입만으로는 복잡한 애플리케이션의 타입을 정확히 표현하기 어려운 경우가 있습니다...',
-    excerpt: 'TypeScript의 고급 타입 시스템과 유틸리티 타입을 활용하여 더욱 안전하고 표현력 있는 코드를 작성하는 방법을 배워봅니다.',
-    author: mockAuthors[1],
-    category: mockCategories[4],
+    excerpt: 'TypeScript의 고급 타입 시스템과 유틸리티 타입을 활용하여 더욱 안전하고 표현력 있는 코드를 작성하는 방법을 배워봅니다.',    author: mockAuthors[1],
+    category: mockCategories[1],
     tags: ['TypeScript', '고급 타입', '유틸리티 타입', '타입 안정성'],
     publishedAt: new Date('2024-01-10'),
     updatedAt: new Date('2024-01-12'),

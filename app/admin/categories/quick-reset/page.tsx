@@ -37,8 +37,7 @@ export default function QuickResetCategoriesPage() {
         '/api/simple-reset-categories',
         '/api/admin-reset-categories'
       ];
-      
-      let success = false;
+        let success = false;
       let responseData: ApiResponse | null = null;
       let allErrors: string[] = [];
       
@@ -52,7 +51,32 @@ export default function QuickResetCategoriesPage() {
             },
           });
           
-          const data: ApiResponse = await response.json();
+          // 응답이 JSON인지 확인하기 전에 텍스트로 가져옵니다
+          const responseText = await response.text();
+          
+          // 빈 응답 처리
+          if (!responseText.trim()) {
+            console.warn(`⚠️ 빈 응답 (${endpoint})`);
+            allErrors.push(`${endpoint}: 서버가 빈 응답을 반환했습니다`);
+            continue;
+          }
+          
+          // 텍스트를 JSON으로 변환 시도
+          let data: ApiResponse;
+          try {
+            data = JSON.parse(responseText);
+          } catch (error) {
+            const jsonError = error as Error;
+            console.error(`JSON 파싱 오류 (${endpoint}):`, jsonError);
+            console.log('응답 상태:', response.status, response.statusText);
+            console.log('응답 텍스트:', responseText.substring(0, 500)); // 로그 크기 제한
+            
+            // 기본 응답 객체 생성
+            data = {
+              success: false,
+              message: `JSON 파싱 오류: ${jsonError.message || '알 수 없는 오류'}. 서버 응답: ${response.status} ${response.statusText}`,
+            };
+          }
           
           if (response.ok && data.success) {
             success = true;
@@ -61,7 +85,7 @@ export default function QuickResetCategoriesPage() {
             break;
           } else {
             console.warn(`⚠️ 카테고리 재설정 실패 (${endpoint}):`, data);
-            allErrors.push(`${endpoint}: ${data.error || '알 수 없는 오류'}`);
+            allErrors.push(`${endpoint}: ${data.error || data.message || '알 수 없는 오류'}`);
           }
         } catch (endpointError) {
           console.error(`❌ 엔드포인트 오류 (${endpoint}):`, endpointError);

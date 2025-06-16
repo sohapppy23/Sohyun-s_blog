@@ -91,9 +91,16 @@ export function PostCard({
     featured: 'text-2xl',
     compact: 'text-lg'
   }[variant];
-
+  
   return (
-    <Card className={`group overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 ${className}`}>
+    <Card className={cn(
+      "group overflow-hidden border-2 border-primary/10 shadow-md transition-all duration-500 hover:shadow-xl hover:-translate-y-1 relative bg-gradient-to-b from-card to-card/50", 
+      className
+    )}>
+      {/* 배경 효과 */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-pink-500/5 via-purple-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
+      <div className="absolute -bottom-16 -right-16 w-40 h-40 bg-purple-500/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      
       <article className="relative h-full">
         {/* 커버 이미지 */}
         <div className={`relative ${imageHeight} overflow-hidden`}>
@@ -102,13 +109,13 @@ export function PostCard({
               src={post.coverImage}
               alt={post.title}
               fill
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               priority={variant === 'featured'}
               onError={() => setImageError(true)}
             />
           ) : (
-            <div className="w-full h-full bg-gradient-to-br from-primary/20 to-purple-600/20 flex items-center justify-center">
+            <div className="w-full h-full bg-gradient-to-br from-pink-500/20 via-purple-500/20 to-blue-500/20 flex items-center justify-center">
               <div className="text-4xl opacity-60">📝</div>
             </div>
           )}
@@ -116,9 +123,9 @@ export function PostCard({
           {/* 추천 포스트 배지 */}
           {post.featured && (
             <div className="absolute top-3 left-3">
-              <span className="px-2 py-1 bg-primary text-primary-foreground text-xs font-medium rounded-full">
+              <Badge className="px-3 py-1 bg-gradient-to-r from-pink-500 to-purple-500 text-white border-0 shadow-md">
                 ⭐ 추천
-              </span>
+              </Badge>
             </div>
           )}
           
@@ -222,12 +229,12 @@ export function PostCard({
                 )}
                 <span className="text-sm text-muted-foreground font-medium">
                   {post.author.name}
-                </span>
-              </div>
+                </span>              </div>
             )}
-
+            
             {/* 오른쪽: 통계 정보 및 좋아요 버튼 */}
-            <div className="flex items-center gap-3">              {/* 통계 정보 (조회수만) */}
+            <div className="flex items-center gap-3">
+              {/* 통계 정보 (조회수만) */}
               {showStats && (
                 <div className="flex items-center gap-3 text-xs text-muted-foreground">
                   <span className="flex items-center gap-1">
@@ -235,7 +242,9 @@ export function PostCard({
                     {(post.viewCount || 0).toLocaleString()}
                   </span>
                 </div>
-              )}{/* 좋아요 버튼 */}
+              )}
+              
+              {/* 좋아요 버튼 */}
               {showLikeButton && (
                 <div onClick={(e) => e.stopPropagation()}>
                   <LikeButton

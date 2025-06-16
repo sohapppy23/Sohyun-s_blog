@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Inter, Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/common/footer";
 import Header from "@/components/common/header";
 import { Providers } from "./providers";
 
-// 폰트 설정 - Inter와 Noto Sans KR 조합
+// ?고듃 ?ㅼ젙 - Inter? Noto Sans KR 議고빀
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -19,17 +19,17 @@ const notoSansKR = Noto_Sans_KR({
   display: "swap",
 });
 
-// SEO 메타데이터 설정
+// SEO 硫뷀??곗씠???ㅼ젙
 export const metadata: Metadata = {
   title: {
-    default: "이소현의 일상생활 일기",
-    template: "%s | 이소현의 일상생활 일기",
+    default: "?댁냼?꾩쓽 ?쇱긽?앺솢 ?쇨린",
+    template: "%s | ?댁냼?꾩쓽 ?쇱긽?앺솢 ?쇨린",
   },
-  description: "영화, 드라마, 뮤지컬, 연극 등 문화생활과 일상을 공유하는 블로그입니다.",
-  keywords: ["영화", "드라마", "뮤지컬", "연극", "영상문화", "디지털영상문화콘텐츠", "한신대학교"],
-  authors: [{ name: "이소현" }],
-  creator: "이소현",
-  publisher: "이소현의 일상생활 일기",
+  description: "?곹솕, ?쒕씪留? 裕ㅼ?而? ?곌레 ??臾명솕?앺솢怨??쇱긽??怨듭쑀?섎뒗 釉붾줈洹몄엯?덈떎.",
+  keywords: ["?곹솕", "?쒕씪留?, "裕ㅼ?而?, "?곌레", "?곸긽臾명솕", "?붿??몄쁺?곷Ц?붿퐯?먯툩", "?쒖떊??숆탳"],
+  authors: [{ name: "?댁냼?? }],
+  creator: "?댁냼??,
+  publisher: "?댁냼?꾩쓽 ?쇱긽?앺솢 ?쇨린",
   formatDetection: {
     email: false,
     address: false,
@@ -37,14 +37,14 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   
-  // Open Graph 설정
+  // Open Graph ?ㅼ젙
   openGraph: {
     type: "website",
     locale: "ko_KR",
     url: "/",
-    title: "이소현의 일상생활 일기",
-    description: "영화, 드라마, 뮤지컬, 연극 등 문화생활과 일상을 공유하는 블로그입니다.",
-    siteName: "이소현의 일상생활 일기",
+    title: "?댁냼?꾩쓽 ?쇱긽?앺솢 ?쇨린",
+    description: "?곹솕, ?쒕씪留? 裕ㅼ?而? ?곌레 ??臾명솕?앺솢怨??쇱긽??怨듭쑀?섎뒗 釉붾줈洹몄엯?덈떎.",
+    siteName: "?댁냼?꾩쓽 ?쇱긽?앺솢 ?쇨린",
     images: [
       {
         url: "/images/og-image.jpg",
@@ -54,16 +54,16 @@ export const metadata: Metadata = {
       },
     ],
   },
-  // Twitter Card 설정
+  // Twitter Card ?ㅼ젙
   twitter: {
     card: "summary_large_image",
-    title: "Sohyun's Blog - 다양한 이야기 블로그",
-    description: "관람, 제작, 일상, 기타 다양한 주제에 관한 블로그입니다.",
+    title: "Sohyun's Blog - ?ㅼ뼇???댁빞湲?釉붾줈洹?,
+    description: "愿?? ?쒖옉, ?쇱긽, 湲고? ?ㅼ뼇??二쇱젣??愿??釉붾줈洹몄엯?덈떎.",
     images: ["/images/og-image.jpg"],
     creator: "@sohyunblog",
   },
   
-  // 기타 메타데이터
+  // 湲고? 硫뷀??곗씠??
   robots: {
     index: true,
     follow: true,
@@ -76,18 +76,18 @@ export const metadata: Metadata = {
     },
   },
   
-  // Favicon 설정
+  // Favicon ?ㅼ젙
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
   },
   
-  // Manifest 설정
+  // Manifest ?ㅼ젙
   manifest: "/site.webmanifest",
 };
 
-// 뷰포트 설정
+// 酉고룷???ㅼ젙
 export const viewport = {
   width: "device-width",
   initialScale: 1,
@@ -99,33 +99,34 @@ export const viewport = {
   ],
 };
 
-// 초단순화된 인라인 헤더
+// 珥덈떒?쒗솕???몃씪???ㅻ뜑
 const SimpleHeader = () => (
-  <header suppressHydrationWarning className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur">
+  <header suppressHydrationWarning={true} className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur">
     <div className="container mx-auto flex h-16 items-center justify-between px-4">
       <a href="/" className="font-bold text-xl text-purple-600">Sohyun's Blog</a>
       <nav className="hidden md:flex space-x-4">
-        <a href="/" className="text-sm">홈</a>
-        <a href="/posts" className="text-sm">블로그</a>
-        <a href="/categories" className="text-sm">카테고리</a>
-        <a href="/about" className="text-sm">소개</a>
+        <a href="/" className="text-sm">??/a>
+        <a href="/posts" className="text-sm">釉붾줈洹?/a>
+        <a href="/categories" className="text-sm">移댄뀒怨좊━</a>
+        <a href="/about" className="text-sm">?뚭컻</a>
       </nav>
     </div>
   </header>
 );
 
 /**
- * 루트 레이아웃 컴포넌트
- * 전역 레이아웃 및 설정 제공
+ * 猷⑦듃 ?덉씠?꾩썐 而댄룷?뚰듃
+ * ?꾩뿭 ?덉씠?꾩썐 諛??ㅼ젙 ?쒓났
  */
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}): React.JSX.Element {
+}>) {
   return (
     <html lang="ko" className={`${inter.variable} ${notoSansKR.variable}`} suppressHydrationWarning>
       <head>
+        {/* 援ъ“?붾맂 ?곗씠??- ?뱀궗?댄듃 ?뺣낫 */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -133,11 +134,10 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Blog",
               "name": "Sohyun's Blog",
-              "description": "관람, 제작, 일상, 기타 다양한 주제에 관한 블로그",
+              "description": "愿?? ?쒖옉, ?쇱긽, 湲고? ?ㅼ뼇??二쇱젣??愿??釉붾줈洹?,
               "url": process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
               "author": {
-                "@type": "Organization",
-                "name": "Sohyun's Blog Team"
+                "@type": "Organization",                "name": "Sohyun's Blog Team"
               },
               "publisher": {
                 "@type": "Organization",
@@ -150,11 +150,10 @@ export default function RootLayout({
               "inLanguage": "ko-KR"
             }),
           }}
-        />
-      </head>
-      <body className="min-h-screen bg-background font-sans antialiased" suppressHydrationWarning>
+        /></head>
+      <body suppressHydrationWarning className="min-h-screen bg-background font-sans antialiased">
         <Providers>
-          <div>
+          <div suppressHydrationWarning>
             <Header />
             <main className="flex-1">
               <div className="container mx-auto max-w-7xl px-4">
@@ -167,16 +166,17 @@ export default function RootLayout({
           </div>
         </Providers>
         
-        {/* 접근성을 위한 스킵 링크 */}
+        {/* ?묎렐?깆쓣 ?꾪븳 ?ㅽ궢 留곹겕 */}
         <div className="sr-only">
           <a 
             href="#main-content" 
             className="absolute left-0 top-0 z-50 -translate-y-full transform bg-primary px-4 py-2 text-primary-foreground transition-transform focus:translate-y-0"
           >
-            메인 콘텐츠로 건너뛰기
+            硫붿씤 肄섑뀗痢좊줈 嫄대꼫?곌린
           </a>
         </div>
       </body>
     </html>
   );
 }
+

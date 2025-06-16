@@ -18,25 +18,25 @@ const NEW_CATEGORIES: CategoryInsert[] = [
     name: '관람',
     slug: 'watching',
     description: '공연, 영화, 전시회 등 문화 예술 관람에 관한 이야기',
-    color: '#3B82F6'  // 파란색
+    color: '#A5C8FF'  // 파스텔 블루
   },
   {
     name: '제작',
     slug: 'creating',
     description: '직접 만들고 제작하는 콘텐츠와 작품에 대한 이야기',
-    color: '#8B5CF6'  // 보라색
+    color: '#D8B4FE'  // 파스텔 퍼플
   },
   {
     name: '일상',
     slug: 'daily',
     description: '소소한 일상과 경험을 공유하는 이야기',
-    color: '#10B981'  // 초록색
+    color: '#A7F3D0'  // 파스텔 그린
   },
   {
     name: '기타',
     slug: 'etc',
     description: '다양한 주제의 기타 이야기',
-    color: '#6B7280'  // 회색
+    color: '#D1D5DB'  // 파스텔 그레이
   }
 ];
 

@@ -10,6 +10,7 @@ import { createServerSupabaseClient } from '@/lib/supabase-server';
 import PostCard from '@/components/blog/post-card';
 import type { Metadata } from 'next';
 import { Database } from '@/types/database.types';
+import { getCategoryEmoji, getContrastColor } from '@/lib/utils';
 
 export const dynamic = "force-dynamic";
 
@@ -252,15 +253,31 @@ export default async function CategoryDetailPage({ params }: PageProps) {
               >
                 ← 모든 카테고리
               </Link>
-            </div>
-
-            {/* 카테고리 정보 */}
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div 
-                className="w-4 h-4 rounded-full"
+            </div>            {/* 카테고리 정보 */}
+            <div className="flex items-center justify-center gap-3 mb-4">              <div 
+                className="w-12 h-12 rounded-full flex items-center justify-center shadow-md border-2 border-blue-50/70"
                 style={{ backgroundColor: transformedCategory.color }}
-              />
-              <h1 className="text-4xl md:text-5xl font-bold">
+              >
+                <span 
+                  className="text-2xl font-bold" 
+                  style={{ 
+                    color: getContrastColor(transformedCategory.color),
+                    textShadow: '0 1px 2px rgba(0,0,0,0.1)'
+                  }}
+                >
+                  {getCategoryEmoji(transformedCategory.name)}
+                </span>
+              </div>              <h1 
+                className="text-4xl md:text-5xl font-bold"
+                style={{ 
+                  color: transformedCategory.name === '관람' ? '#4A86E8' : 
+                         transformedCategory.name === '제작' ? '#9966CC' : 
+                         transformedCategory.name === '일상' ? '#4CAF50' : 
+                         transformedCategory.name === '기타' ? '#7F92B0' : 
+                         'inherit',
+                  textShadow: '0 1px 2px rgba(0,0,0,0.05)' 
+                }}
+              >
                 {transformedCategory.name}
               </h1>
             </div>
@@ -270,11 +287,16 @@ export default async function CategoryDetailPage({ params }: PageProps) {
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
                 {transformedCategory.description}
               </p>
-            )}
-
-            {/* 포스트 개수 */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted text-muted-foreground text-sm">
-              <span>📝</span>
+            )}            {/* 포스트 개수 */}
+            <div 
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium shadow-sm border border-primary/10"
+              style={{ 
+                backgroundColor: `${transformedCategory.color}50`,
+                color: "#000000",
+                textShadow: '0 1px 1px rgba(255,255,255,0.1)'
+              }}
+            >
+              <span>{getCategoryEmoji(transformedCategory.name)}</span>
               <span>{transformedPosts.length}개의 글</span>
             </div>
           </div>
@@ -337,10 +359,9 @@ export default async function CategoryDetailPage({ params }: PageProps) {
                 곧 고품질의 콘텐츠들이 업데이트될 예정입니다.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">                <Link
                   href="/categories"
-                  className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+                  className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-2 text-sm font-medium text-blue-50 hover:bg-primary/90 transition-colors"
                 >
                   다른 카테고리 보기
                 </Link>

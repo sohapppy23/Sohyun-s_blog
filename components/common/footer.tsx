@@ -18,6 +18,8 @@ const footerLinks: FooterLink[] = [
   { name: '소개', href: '/about', description: '블로그 소개 보기' },
   { name: '개인정보처리방침', href: '/privacy', description: '개인정보 보호정책' },
   { name: '이용약관', href: '/terms', description: '서비스 이용약관' },
+  { name: '관리자', href: '/admin', description: '관리자 페이지' },
+  { name: '카테고리 관리', href: '/admin/categories', description: '카테고리 관리 페이지' },
   { name: '연락처', href: '/contact', description: '문의하기' },
 ];
 
@@ -47,9 +49,8 @@ export default function Footer() {
             <div className="text-center md:text-left">
               <p className="text-sm text-muted-foreground">
                 © {currentYear} <span className="font-medium">My Blog</span>. All rights reserved.
-              </p>
-              <p className="text-xs text-muted-foreground mt-1">
-                웹 개발 기술 블로그 • Built with Next.js
+              </p>              <p className="text-xs text-muted-foreground mt-1">
+                관람, 제작, 일상, 기타 다양한 주제의 블로그 • Built with Next.js
               </p>
             </div>
           </div>

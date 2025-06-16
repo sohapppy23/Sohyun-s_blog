@@ -127,3 +127,43 @@ export function generateUniqueSlug(
 
     return slug;
 }
+
+/**
+ * 카테고리 이름에 맞는 이모지 반환
+ * @param categoryName 카테고리 이름
+ * @returns 카테고리 이모지
+ */
+export function getCategoryEmoji(categoryName: string): string {
+    switch (categoryName) {
+        case '관람':
+            return '🎬'; // 영화/공연 관람
+        case '제작':
+            return '🎨'; // 창작/제작
+        case '일상':
+            return '📝'; // 일상
+        case '기타':
+            return '✨'; // 기타
+        default:
+            return '📚'; // 기본값
+    }
+}
+
+/**
+ * 배경색에 따른 대비 텍스트 색상 반환
+ * @param backgroundColor 배경색 (헥스 코드)
+ * @returns 텍스트 색상 (헥스 코드)
+ */
+export function getContrastColor(backgroundColor: string): string {
+    // 헥스 코드를 RGB로 변환
+    const hex = backgroundColor.replace('#', '');
+    const r = parseInt(hex.substring(0, 2), 16);
+    const g = parseInt(hex.substring(2, 4), 16);
+    const b = parseInt(hex.substring(4, 6), 16);
+    
+    // 색상 밝기 계산 (YIQ 공식)
+    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+    
+    // 밝기에 따라 어두운 색상 또는 파스텔 색상 반환
+    // 파스텔 배경일 경우 더 어두운 색상으로 대비
+    return brightness > 180 ? '#1f2937' : brightness > 128 ? '#4b5563' : '#f8fafc';
+}
