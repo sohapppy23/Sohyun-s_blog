@@ -36,8 +36,7 @@ export default function QuickResetCategoriesPage() {
         '/api/categories/update?force=true', 
         '/api/simple-reset-categories',
         '/api/admin-reset-categories'
-      ];
-      let success = false;
+      ];      let success = false;
       let responseData: ApiResponse | null = null;
       const allErrors: string[] = [];
       
