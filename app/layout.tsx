@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "@/components/common/footer";
 import Header from "@/components/common/header";
 import { Providers } from "./providers";
+import Link from "next/link";
 
 // 폰트 설정 - Inter와 Noto Sans KR 조합
 const inter = Inter({
@@ -103,12 +104,12 @@ export const viewport = {
 const SimpleHeader = () => (
   <header suppressHydrationWarning className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur">
     <div className="container mx-auto flex h-16 items-center justify-between px-4">
-      <a href="/" className="font-bold text-xl text-purple-600">Sohyun's Blog</a>
+      <Link href="/" className="font-bold text-xl text-purple-600">Sohyun{`'`}s Blog</Link>
       <nav className="hidden md:flex space-x-4">
-        <a href="/" className="text-sm">홈</a>
-        <a href="/posts" className="text-sm">블로그</a>
-        <a href="/categories" className="text-sm">카테고리</a>
-        <a href="/about" className="text-sm">소개</a>
+        <Link href="/" className="text-sm">홈</Link>
+        <Link href="/posts" className="text-sm">블로그</Link>
+        <Link href="/categories" className="text-sm">카테고리</Link>
+        <Link href="/about" className="text-sm">소개</Link>
       </nav>
     </div>
   </header>

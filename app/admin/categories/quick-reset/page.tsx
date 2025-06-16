@@ -31,15 +31,14 @@ export default function QuickResetCategoriesPage() {
       setIsLoading(true);
       setResult(null);
 
-      // 세 가지 엔드포인트를 순차적으로 시도
-      const endpoints = [
+      // 세 가지 엔드포인트를 순차적으로 시도      const endpoints = [
         '/api/categories/update?force=true', 
         '/api/simple-reset-categories',
         '/api/admin-reset-categories'
       ];
         let success = false;
       let responseData: ApiResponse | null = null;
-      let allErrors: string[] = [];
+      const allErrors: string[] = [];
       
       for (const endpoint of endpoints) {
         try {

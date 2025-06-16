@@ -5,6 +5,8 @@
 
 'use client';
 
+import Link from 'next/link';
+
 export default function AdminLayout({
   children,
 }: {
@@ -13,40 +15,39 @@ export default function AdminLayout({
   return (
     <div className="flex min-h-screen flex-col">
       {/* 관리자 헤더 */}
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-14 items-center">          <div className="mr-4 flex">
-            <a href="/" className="mr-2 flex items-center space-x-2">
+      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">        <div className="container flex h-14 items-center">          <div className="mr-4 flex">
+            <Link href="/" className="mr-2 flex items-center space-x-2">
               <span className="font-bold">My Blog</span>
-            </a>
+            </Link>
             <div className="text-sm text-muted-foreground">
-              <a href="/admin">관리자</a>
+              <Link href="/admin">관리자</Link>
             </div>
           </div>          <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
             <nav className="flex items-center space-x-4">
-              <a 
+              <Link 
                 href="/admin" 
                 className="text-sm font-medium transition-colors hover:text-foreground/80 text-foreground/60"
               >
                 대시보드
-              </a>
-              <a 
+              </Link>
+              <Link 
                 href="/admin/posts/create" 
                 className="text-sm font-medium transition-colors hover:text-foreground/80 text-foreground/60"
               >
                 글쓰기
-              </a>
-              <a 
+              </Link>
+              <Link 
                 href="/admin/categories" 
                 className="text-sm font-medium transition-colors hover:text-foreground/80 text-foreground/60"
               >
                 카테고리
-              </a>
-              <a 
+              </Link>
+              <Link 
                 href="/" 
                 className="text-sm font-medium transition-colors hover:text-foreground/80 text-foreground/60"
               >
                 사이트로 돌아가기
-              </a>
+              </Link>
             </nav>
           </div>
         </div>

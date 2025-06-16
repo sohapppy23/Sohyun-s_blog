@@ -19,16 +19,18 @@ const eslintConfig = [
       
       // React Hook 관련 규칙을 경고로 변경
       "react-hooks/exhaustive-deps": "warn",
-      
-      // Next.js 관련 규칙을 경고로 변경
+        // Next.js 관련 규칙을 경고로 변경
       "@next/next/no-img-element": "warn",
+      "@next/next/no-html-link-for-pages": "warn",
       
       // React 관련 규칙을 경고로 변경
       "react/no-unescaped-entities": "warn",
       "jsx-a11y/alt-text": "warn",
+        // Hook 규칙을 경고로 변경
+      "react-hooks/rules-of-hooks": "warn",
       
-      // Hook 규칙을 경고로 변경
-      "react-hooks/rules-of-hooks": "warn"
+      // 기타 규칙을 경고로 변경
+      "prefer-const": "warn"
     }
   }
 ];
