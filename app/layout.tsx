@@ -23,35 +23,34 @@ const notoSansKR = Noto_Sans_KR({
 // SEO 메타데이터 설정
 export const metadata: Metadata = {
   title: {
-    default: "이소현의 일상생활 일기",
-    template: "%s | 이소현의 일상생활 일기",
+    default: "Sohyun's Blog",
+    template: "%s | Sohyun's Blog",
   },
   description: "영화, 드라마, 뮤지컬, 연극 등 문화생활과 일상을 공유하는 블로그입니다.",
   keywords: ["영화", "드라마", "뮤지컬", "연극", "영상문화", "디지털영상문화콘텐츠", "한신대학교"],
   authors: [{ name: "이소현" }],
   creator: "이소현",
-  publisher: "이소현의 일상생활 일기",
+  publisher: "Sohyun's Blog",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
-  
-  // Open Graph 설정
+    // Open Graph 설정
   openGraph: {
     type: "website",
     locale: "ko_KR",
     url: "/",
-    title: "이소현의 일상생활 일기",
+    title: "Sohyun's Blog",
     description: "영화, 드라마, 뮤지컬, 연극 등 문화생활과 일상을 공유하는 블로그입니다.",
-    siteName: "이소현의 일상생활 일기",
+    siteName: "Sohyun's Blog",
     images: [
       {
         url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "My Blog",
+        alt: "Sohyun's Blog",
       },
     ],
   },

@@ -136,17 +136,14 @@ export default async function Home() {
   ]);
 
   return (
-    <div id="main-content" className="py-16">
-      {/* Hero 섹션 */}      <section className="text-center mb-20 relative">
+    <div id="main-content" className="py-16">      {/* Hero 섹션 */}      <section className="text-center mb-20 relative">
         <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-full h-40 bg-gradient-to-r from-pink-500/20 via-purple-500/20 to-blue-500/20 rounded-full blur-3xl -z-10"></div>
-        
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-lg md:text-2xl lg:text-3xl font-bold mb-6 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 text-transparent bg-clip-text whitespace-nowrap overflow-hidden text-ellipsis mx-auto">
+          <div className="max-w-4xl mx-auto">
+          <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 text-transparent bg-clip-text py-2 leading-relaxed">
             Welcome to Sohyun's Blog
-          </h1>
-          <div className="flex justify-center mb-4">
+          </h1>          <div className="flex justify-center mb-4">
             <Badge variant="outline" className="px-4 py-1 text-base font-medium border-2 border-primary/30">
-              ✨ 이소현의 일상 블로그 ✨
+              ✨ Sohyun's Blog ✨
             </Badge>
           </div>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
