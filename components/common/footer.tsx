@@ -27,76 +27,79 @@ export default function Footer() {
   // 현재 연도 자동 계산
   const currentYear = new Date().getFullYear();
 
-  return (    <footer className="w-full border-t bg-gradient-to-r from-purple-50 via-indigo-50 to-sky-50">
-      <div className="container mx-auto max-w-7xl px-4 py-8">
+  return (
+    <footer className="w-full border-t bg-background/95 py-4">
+      <div className="container mx-auto max-w-7xl px-4">
         
-        {/* 메인 푸터 콘텐츠 - 반응형 2열/1열 레이아웃 */}
-        <div className="flex flex-col items-center justify-between space-y-6 md:flex-row md:space-y-0">
-          
-          {/* 좌측: 브랜드 정보 및 저작권 */}
-          <div className="flex flex-col items-center space-y-3 md:items-start">
-            {/* 브랜드 로고 및 이름 */}
-            <div className="flex items-center space-x-2">
-              <div className="h-7 w-7 rounded-md bg-purple-400 flex items-center justify-center">
-                <span className="text-white font-bold text-sm" aria-hidden="true">
-                  B
-                </span>
-              </div>
-              <span className="font-bold text-lg text-purple-600">My Blog</span>
-            </div>
-            
-            {/* 저작권 정보 */}
-            <div className="text-center md:text-left">
-              <p className="text-sm text-muted-foreground">
-                © {currentYear} <span className="font-medium">My Blog</span>. All rights reserved.
-              </p>              <p className="text-xs text-muted-foreground mt-1">
-                관람, 제작, 일상, 기타 다양한 주제의 블로그 • Built with Next.js
-              </p>
-            </div>
-          </div>
+        {/* 상단 메뉴 네비게이션 - 사진에 있는 상단 메뉴 추가 */}
+        <div className="hidden md:flex justify-end mb-2">
+          <nav className="flex items-center space-x-6 text-sm">
+            <Link href="/about" className="hover:text-foreground transition-colors text-muted-foreground">
+              소개
+            </Link>
+            <Link href="/privacy" className="hover:text-foreground transition-colors text-muted-foreground">
+              개인정보처리방침
+            </Link>
+            <Link href="/terms" className="hover:text-foreground transition-colors text-muted-foreground">
+              이용약관
+            </Link>
+            <Link href="/admin" className="hover:text-foreground transition-colors text-muted-foreground">
+              관리자
+            </Link>
+            <Link href="/admin/categories" className="hover:text-foreground transition-colors text-muted-foreground">
+              카테고리 관리
+            </Link>
+            <Link href="/contact" className="hover:text-foreground transition-colors text-muted-foreground">
+              연락처
+            </Link>
+          </nav>
+        </div>
 
-          {/* 우측: 네비게이션 링크 */}
-          <div className="flex flex-col items-center md:items-end space-y-3">
-            <nav className="flex flex-wrap items-center justify-center md:justify-end gap-x-6 gap-y-2">
-              {footerLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors focus:text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm"
-                  title={link.description}
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </nav>
-            
-            {/* 추가 정보 */}
-            <div className="flex items-center space-x-4 text-xs text-muted-foreground">
-              <Link 
-                href="/rss.xml" 
-                className="hover:text-foreground transition-colors"
-                title="RSS 피드"
-              >
-                RSS
-              </Link>
-              <span>•</span>
-              <Link 
-                href="https://github.com" 
-                className="hover:text-foreground transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="GitHub에서 소스코드 보기"
-              >
-                GitHub
-              </Link>
-              <span>•</span>
-              <span>한국어</span>
+        {/* 저작권 정보 */}
+        <div className="flex flex-col items-center text-center border-t pt-2">
+          <div className="flex items-center space-x-2 mb-1">
+            <div className="h-6 w-6 rounded-md bg-purple-400 flex items-center justify-center">
+              <span className="text-white font-bold text-sm" aria-hidden="true">
+                B
+              </span>
             </div>
+            <span className="font-bold text-purple-600">My Blog</span>
+          </div>
+          
+          <p className="text-sm text-muted-foreground">
+            © {currentYear} My Blog. All rights reserved.
+          </p>
+          
+          <p className="text-xs text-muted-foreground mt-1">
+            관람, 제작, 일상, 기타 다양한 주제의 블로그 • Built with Next.js
+          </p>
+          
+          {/* 추가 정보 - 사진에 있는 RSS, GitHub, 한국어 */}
+          <div className="flex items-center space-x-2 mt-2 text-xs text-muted-foreground">
+            <Link 
+              href="/rss.xml" 
+              className="hover:text-foreground transition-colors"
+              title="RSS 피드"
+            >
+              RSS
+            </Link>
+            <span>•</span>
+            <Link 
+              href="https://github.com/sohapppy23/Sohyun-s_blog" 
+              className="hover:text-foreground transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="GitHub에서 소스코드 보기"
+            >
+              GitHub
+            </Link>
+            <span>•</span>
+            <span>한국어</span>
           </div>
         </div>
 
-        {/* 모바일에서 구분선과 간단 링크 추가 */}
-        <div className="mt-6 pt-6 border-t border-border md:hidden">
+        {/* 모바일에서 간소화된 링크 */}
+        <div className="md:hidden mt-4 pt-4 border-t border-border">
           <div className="flex items-center justify-center space-x-4 text-xs text-muted-foreground">
             <Link href="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
             <span>•</span>
@@ -108,4 +111,4 @@ export default function Footer() {
       </div>
     </footer>
   );
-} 
+}
